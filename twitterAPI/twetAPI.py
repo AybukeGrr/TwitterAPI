@@ -2,7 +2,7 @@ import psycopg2
 import snscrape.modules.twitter as sntwitter
 import pandas as pd
 
-query = "(from:elonmusk) until:2020-01-01 since:2010-01-01"
+query = "(from:alex) until:2020-01-01 since:2010-01-01"
 tweets = []
 limit = 10
 
@@ -29,7 +29,7 @@ def sv_database():
     cursor = conn.cursor()
     for t in tweets:
         cursor.execute(
-            "INSERT INTO twitterAPI(id, date, username, content)")
+            "INSERT INTO twitterAPI(date, username, content) VALUES (%s,%s,%s)", t)
     conn.commit()
     print("kayıt başarılı")
     conn.close()
