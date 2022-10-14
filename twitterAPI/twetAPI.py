@@ -34,8 +34,5 @@ def sv_database():
     print("kayıt başarılı")
     conn.close()
 
-for k in query:
-    print(k)
-    collect_datas(k)
 
 sv_database()
